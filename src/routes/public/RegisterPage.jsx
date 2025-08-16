@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "../../validation/userSchemas";
@@ -7,12 +6,8 @@ import { useNavigate, Link } from "react-router-dom";
 import AuthLayout from "./AuthLayout";
 
 export default function RegisterPage() {
-  const { isAuthenticated, register: registerUser } = useAuth();
+  const { register: registerUser } = useAuth();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isAuthenticated) navigate("/app/home", { replace: true });
-  }, [isAuthenticated, navigate]);
 
   const {
     register,

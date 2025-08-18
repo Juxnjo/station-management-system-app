@@ -3,7 +3,7 @@
 Aplicación web realizada con **React** y **Vite** para administrar estaciones. Incluye autenticación, gestión de estaciones y formularios con validación.
 
 ## 🌐 En Vivo
-- **Frontend**: 
+- **Frontend**: [Vercel](https://station-management-system-app.vercel.app/)
 
 ## 📋 Requisitos previos
 
@@ -14,7 +14,7 @@ Aplicación web realizada con **React** y **Vite** para administrar estaciones. 
 
 1. Clona el repositorio:
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/Juxnjo/station-management-system-app.git
    cd station-management-system-app
    ```
 2. Instala las dependencias:

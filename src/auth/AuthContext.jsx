@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { ls } from "./ls";
 import { USERS_KEY, SESSION_KEY } from "./keys";
@@ -54,14 +55,17 @@ export function AuthProvider({ children }) {
     ls.set(USERS_KEY, users);
   };
 
-  const value = useMemo(() => ({
-    session,
-    isAuthenticated: !!session,
-    register,
-    login,
-    logout,
-    changePassword,
-  }), [session]);
+  const value = useMemo(
+    () => ({
+      session,
+      isAuthenticated: !!session,
+      register,
+      login,
+      logout,
+      changePassword,
+    }),
+    [session, register, login, logout, changePassword]
+  );
 
   return <AuthCtx.Provider value={value}>{children}</AuthCtx.Provider>;
 }

@@ -33,7 +33,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Nombre</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
           {...register("name")}
         />
         {errors.name && (
@@ -44,7 +44,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Ubicación</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
           {...register("location")}
         />
         {errors.location && (
@@ -55,7 +55,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Estado</label>
         <select
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
           {...register("status")}
         >
           <option value="active">Activa</option>
@@ -71,7 +71,7 @@ export default function StationForm({
         <div>
           <label className="block text-sm font-medium mb-1">Latitud</label>
           <input
-            className="w-full rounded-md border px-3 py-2"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
             {...register("latitude")}
           />
           {errors.latitude && (
@@ -81,7 +81,7 @@ export default function StationForm({
         <div>
           <label className="block text-sm font-medium mb-1">Longitud</label>
           <input
-            className="w-full rounded-md border px-3 py-2"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
             {...register("longitude")}
           />
           {errors.longitude && (
@@ -93,7 +93,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Tipo</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
           {...register("type")}
         />
         {errors.type && (
@@ -104,7 +104,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Última lectura</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
           placeholder="2025-08-16T14:30:00Z"
           type="datetime-local"
           {...register("last_answer")}
@@ -119,7 +119,7 @@ export default function StationForm({
           Temperatura actual (°C)
         </label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
           {...register("temp")}
         />
         {errors.temp && (
@@ -139,14 +139,14 @@ export default function StationForm({
       <div className="flex justify-end gap-2 pt-2">
         <button
           type="button"
-          className="border rounded px-3 py-2"
+          className="btn btn-secondary"
           onClick={onCancel}
         >
           Cancelar
         </button>
         <button
           disabled={isSubmitting}
-          className="rounded px-4 py-2 bg-gray-900 text-white hover:bg-black disabled:opacity-60"
+          className="btn btn-primary"
         >
           {submitLabel}
         </button>

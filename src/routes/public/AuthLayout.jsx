@@ -1,11 +1,11 @@
 // routes/public/AuthLayout.jsx
 export default function AuthLayout({ title, subtitle, children }) {
   return (
-    <div className="min-h-dvh bg-gray-50 flex items-center">
+    <div className="min-h-dvh bg-sky-50 flex items-center">
       <div className="mx-auto w-full max-w-6xl px-4">
         <header className="flex items-center justify-between py-6">
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-gray-900 text-white font-bold">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-sky-600 text-white font-bold">
               A
             </span>
             <span className="font-semibold">App</span>
@@ -15,7 +15,7 @@ export default function AuthLayout({ title, subtitle, children }) {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="hidden md:block">
             <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
-            {subtitle && <p className="mt-2 text-gray-600">{subtitle}</p>}
+            {subtitle && <p className="mt-2 text-slate-600">{subtitle}</p>}
           </div>
 
           <div className="md:ml-auto">
@@ -25,7 +25,7 @@ export default function AuthLayout({ title, subtitle, children }) {
           </div>
         </div>
 
-        <footer className="py-6 text-xs text-gray-500 text-center">
+        <footer className="py-6 text-xs text-slate-500 text-center">
           
         </footer>
       </div>

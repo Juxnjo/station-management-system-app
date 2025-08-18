@@ -10,7 +10,7 @@ export default function AppLayout() {
           <Outlet /> 
         </div>
       </main>
-      <footer className="border-t text-xs text-gray-500 py-3 text-center">
+      <footer className="border-t text-xs text-slate-500 py-3 text-center">
         &copy; 2025
       </footer>
     </div>

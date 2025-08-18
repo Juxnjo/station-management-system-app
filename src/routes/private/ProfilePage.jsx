@@ -22,7 +22,7 @@ export default function ProfilePage() {
     <div className="max-w-xl space-y-6">
       <section className="bg-white border rounded-xl shadow-sm p-6">
         <h1 className="text-xl font-semibold mb-2">Perfil</h1>
-        <p className="text-gray-600 text-sm">Usuario: <span className="font-medium">{session?.email}</span></p>
+        <p className="text-slate-600 text-sm">Usuario: <span className="font-medium">{session?.email}</span></p>
       </section>
 
       <section className="bg-white border rounded-xl shadow-sm p-6">
@@ -30,18 +30,30 @@ export default function ProfilePage() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Contraseña actual</label>
-            <input type="password" className="w-full rounded-md border px-3 py-2" {...register("current")} />
+            <input
+              type="password"
+              className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
+              {...register("current")}
+            />
             {errors.current && <p className="text-red-600 text-sm">{errors.current.message}</p>}
           </div>
           <div className="grid md:grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium mb-1">Nueva contraseña</label>
-              <input type="password" className="w-full rounded-md border px-3 py-2" {...register("next")} />
+              <input
+                type="password"
+                className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
+                {...register("next")}
+              />
               {errors.next && <p className="text-red-600 text-sm">{errors.next.message}</p>}
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Confirmar nueva contraseña</label>
-              <input type="password" className="w-full rounded-md border px-3 py-2" {...register("confirm")} />
+              <input
+                type="password"
+                className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
+                {...register("confirm")}
+              />
               {errors.confirm && <p className="text-red-600 text-sm">{errors.confirm.message}</p>}
             </div>
           </div>
@@ -53,8 +65,11 @@ export default function ProfilePage() {
           )}
 
           <div className="flex justify-end gap-2">
-            <button type="submit" disabled={isSubmitting}
-              className="rounded px-4 py-2 bg-gray-900 text-white hover:bg-black disabled:opacity-60">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn btn-primary"
+            >
               Guardar cambios
             </button>
           </div>

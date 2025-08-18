@@ -52,10 +52,10 @@ export default function HomePage() {
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">Estaciones</h1>
         <div className="flex gap-2">
-          <button className="border rounded px-3 py-2" onClick={onAdd}>
+          <button className="btn btn-primary" onClick={onAdd}>
             Agregar estación
           </button>
-          <button className="border rounded px-3 py-2" onClick={refresh}>
+          <button className="btn btn-secondary" onClick={refresh}>
             Recargar
           </button>
         </div>
@@ -63,7 +63,7 @@ export default function HomePage() {
 
       <div className="overflow-x-auto border rounded">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50">
+          <thead className="bg-sky-50">
             <tr>
               {[
                 "ID",
@@ -98,13 +98,13 @@ export default function HomePage() {
                 <td className="p-2">
                   <div className="flex gap-2">
                     <button
-                      className="border rounded px-2 py-1"
+                      className="btn btn-secondary px-2 py-1"
                       onClick={() => onEdit(r)}
                     >
                       Editar
                     </button>
                     <button
-                      className="border rounded px-2 py-1"
+                      className="btn bg-red-600 text-white hover:bg-red-700 px-2 py-1"
                       onClick={() => onDelete(r)}
                     >
                       Eliminar
@@ -115,7 +115,7 @@ export default function HomePage() {
             ))}
             {stations.length === 0 && (
               <tr>
-                <td colSpan={10} className="p-4 text-center text-gray-500">
+                <td colSpan={10} className="p-4 text-center text-slate-500">
                   Sin datos
                 </td>
               </tr>

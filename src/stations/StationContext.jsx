@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { StationsAPI } from "./api";
 
@@ -52,7 +53,7 @@ export function StationProvider({ children }) {
       update,
       remove,
     }),
-    [stations, loading, error]
+    [stations, loading, error, refresh, create, update, remove]
   );
 
   return <StationCtx.Provider value={value}>{children}</StationCtx.Provider>;

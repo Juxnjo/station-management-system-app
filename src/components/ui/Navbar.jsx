@@ -6,8 +6,8 @@ const linkBase =
   "px-3 py-2 rounded-md text-sm font-medium transition-colors";
 const linkClass = ({ isActive }) =>
   isActive
-    ? `${linkBase} bg-gray-900 text-white`
-    : `${linkBase} text-gray-700 hover:bg-gray-100`;
+    ? `${linkBase} bg-sky-600 text-white`
+    : `${linkBase} text-sky-700 hover:bg-sky-100`;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function Navbar() {
       >
         {/* Marca */}
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded bg-gray-900 text-white font-bold">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded bg-sky-600 text-white font-bold">
             A
           </span>
           <span className="font-semibold">App</span>
@@ -49,19 +49,16 @@ export default function Navbar() {
         {/* Usuario + acciones */}
         <div className="hidden md:flex items-center gap-3">
           {session?.email && (
-            <span className="text-sm text-gray-600">Hola, {session.email}</span>
+            <span className="text-sm text-slate-600">Hola, {session.email}</span>
           )}
-          <button
-            onClick={handleLogout}
-            className="px-3 py-2 rounded-md text-sm border hover:bg-gray-50"
-          >
+          <button onClick={handleLogout} className="btn btn-secondary">
             Cerrar sesión
           </button>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden ml-auto border rounded px-3 py-2"
+          className="md:hidden ml-auto btn btn-secondary"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -92,17 +89,17 @@ export default function Navbar() {
             Perfil
           </NavLink>
 
-          <div className="h-px bg-gray-200 my-2" />
+          <div className="h-px bg-sky-200 my-2" />
 
           {session?.email && (
-            <div className="text-sm text-gray-600">Hola, {session.email}</div>
+            <div className="text-sm text-slate-600">Hola, {session.email}</div>
           )}
           <button
             onClick={() => {
               setOpen(false);
               handleLogout();
             }}
-            className="px-3 py-2 rounded-md text-sm border hover:bg-gray-50 text-left"
+            className="btn btn-secondary w-full justify-start"
           >
             Cerrar sesión
           </button>

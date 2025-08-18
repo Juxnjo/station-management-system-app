@@ -36,7 +36,7 @@ export default function RegisterPage() {
         <div>
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
             {...register("email")}
             placeholder="tu@correo.com"
           />
@@ -49,7 +49,7 @@ export default function RegisterPage() {
           <label className="block text-sm font-medium mb-1">Contraseña</label>
           <input
             type="password"
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
             {...register("password")}
             placeholder="••••••••"
           />
@@ -66,7 +66,7 @@ export default function RegisterPage() {
           </label>
           <input
             type="password"
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
             {...register("confirm")}
             placeholder="••••••••"
           />
@@ -83,15 +83,12 @@ export default function RegisterPage() {
           </p>
         )}
 
-        <button
-          disabled={isSubmitting}
-          className="w-full inline-flex justify-center items-center rounded-md bg-gray-900 text-white px-4 py-2 font-medium hover:bg-black disabled:opacity-60"
-        >
+        <button disabled={isSubmitting} className="w-full btn btn-primary">
           Registrarme
         </button>
       </form>
 
-      <p className="mt-4 text-sm text-gray-600">
+      <p className="mt-4 text-sm text-slate-600">
         ¿Ya tienes cuenta?{" "}
         <Link className="font-medium underline underline-offset-4" to="/login">
           Inicia sesión

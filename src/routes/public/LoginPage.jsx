@@ -36,7 +36,7 @@ export default function LoginPage() {
         <div>
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
             {...register("email")}
             placeholder="tu@correo.com"
           />
@@ -49,7 +49,7 @@ export default function LoginPage() {
           <label className="block text-sm font-medium mb-1">Contraseña</label>
           <input
             type="password"
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-sky-600"
             {...register("password")}
             placeholder="••••••••"
           />
@@ -66,15 +66,12 @@ export default function LoginPage() {
           </p>
         )}
 
-        <button
-          disabled={isSubmitting}
-          className="w-full inline-flex justify-center items-center rounded-md bg-gray-900 text-white px-4 py-2 font-medium hover:bg-black disabled:opacity-60"
-        >
+        <button disabled={isSubmitting} className="w-full btn btn-primary">
           Entrar
         </button>
       </form>
 
-      <p className="mt-4 text-sm text-gray-600">
+      <p className="mt-4 text-sm text-slate-600">
         ¿No tienes cuenta?{" "}
         <Link
           className="font-medium underline underline-offset-4"

@@ -5,6 +5,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import PublicRoute from "./auth/PublicRoute";
 import LoginPage from "./routes/public/LoginPage";
 import RegisterPage from "./routes/public/RegisterPage";
+import { StationProvider } from "./stations/StationContext";
 import AppLayout from "./routes/private/AppLayout";
 import HomePage from "./routes/private/HomePage";
 import ProfilePage from "./routes/private/ProfilePage";
@@ -21,7 +22,14 @@ function App() {
           </Route>
 
           <Route element={<ProtectedRoute />}>
-            <Route path="/app" element={<AppLayout />}>
+            <Route
+              path="/app"
+              element={
+                <StationProvider>
+                  <AppLayout />
+                </StationProvider>
+              }
+            >
               <Route index element={<Navigate to="home" replace />} />
 
               <Route path="home" element={<HomePage />} />

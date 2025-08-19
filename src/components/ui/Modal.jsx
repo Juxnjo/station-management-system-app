@@ -12,10 +12,10 @@ export default function Modal({ open, title, children, onClose }) {
         aria-modal="true"
         className="absolute inset-0 flex items-center justify-center p-4"
       >
-        <div className="w-full max-w-lg bg-white rounded-xl border shadow-sm">
-          <header className="flex items-center justify-between px-5 py-3 border-b">
+        <div className="w-full max-w-lg bg-white rounded-xl border shadow-sm dark:bg-gray-900 dark:border-gray-700">
+          <header className="flex items-center justify-between px-5 py-3 border-b dark:border-gray-700">
             <h3 className="text-lg font-semibold">{title}</h3>
-            <button className="px-2 py-1 text-gray-500" onClick={onClose}>
+            <button className="px-2 py-1 text-gray-500 dark:text-gray-300" onClick={onClose}>
               ✕
             </button>
           </header>

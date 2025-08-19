@@ -33,7 +33,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Nombre</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
           {...register("name")}
         />
         {errors.name && (
@@ -44,7 +44,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Ubicación</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
           {...register("location")}
         />
         {errors.location && (
@@ -55,7 +55,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Estado</label>
         <select
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
           {...register("status")}
         >
           <option value="active">Activa</option>
@@ -71,7 +71,7 @@ export default function StationForm({
         <div>
           <label className="block text-sm font-medium mb-1">Latitud</label>
           <input
-            className="w-full rounded-md border px-3 py-2"
+            className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
             {...register("latitude")}
           />
           {errors.latitude && (
@@ -81,7 +81,7 @@ export default function StationForm({
         <div>
           <label className="block text-sm font-medium mb-1">Longitud</label>
           <input
-            className="w-full rounded-md border px-3 py-2"
+            className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
             {...register("longitude")}
           />
           {errors.longitude && (
@@ -93,7 +93,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Tipo</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
           {...register("type")}
         />
         {errors.type && (
@@ -104,7 +104,7 @@ export default function StationForm({
       <div>
         <label className="block text-sm font-medium mb-1">Última lectura</label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
           placeholder="2025-08-16T14:30:00Z"
           type="datetime-local"
           {...register("last_answer")}
@@ -119,7 +119,7 @@ export default function StationForm({
           Temperatura actual (°C)
         </label>
         <input
-          className="w-full rounded-md border px-3 py-2"
+          className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
           {...register("temp")}
         />
         {errors.temp && (
@@ -131,7 +131,7 @@ export default function StationForm({
 
       {/* Error global */}
       {errors.root && (
-        <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded p-2">
+        <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded p-2 dark:bg-red-900/40 dark:border-red-800">
           {errors.root.message}
         </p>
       )}
@@ -139,7 +139,7 @@ export default function StationForm({
       <div className="flex justify-end gap-2 pt-2">
         <button
           type="button"
-          className="border rounded px-3 py-2"
+          className="border rounded px-3 py-2 dark:border-gray-700 dark:hover:bg-gray-700"
           onClick={onCancel}
         >
           Cancelar

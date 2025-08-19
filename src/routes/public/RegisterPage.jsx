@@ -36,7 +36,7 @@ export default function RegisterPage() {
         <div>
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900 dark:bg-gray-800 dark:border-gray-700"
             {...register("email")}
             placeholder="tu@correo.com"
           />
@@ -49,7 +49,7 @@ export default function RegisterPage() {
           <label className="block text-sm font-medium mb-1">Contraseña</label>
           <input
             type="password"
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900 dark:bg-gray-800 dark:border-gray-700"
             {...register("password")}
             placeholder="••••••••"
           />
@@ -66,7 +66,7 @@ export default function RegisterPage() {
           </label>
           <input
             type="password"
-            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900"
+            className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-gray-900 dark:bg-gray-800 dark:border-gray-700"
             {...register("confirm")}
             placeholder="••••••••"
           />
@@ -78,7 +78,7 @@ export default function RegisterPage() {
         </div>
 
         {errors.root && (
-          <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded p-2">
+          <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded p-2 dark:bg-red-900/40 dark:border-red-800">
             {errors.root.message}
           </p>
         )}
@@ -91,7 +91,7 @@ export default function RegisterPage() {
         </button>
       </form>
 
-      <p className="mt-4 text-sm text-gray-600">
+      <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
         ¿Ya tienes cuenta?{" "}
         <Link className="font-medium underline underline-offset-4" to="/login">
           Inicia sesión

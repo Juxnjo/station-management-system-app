@@ -70,31 +70,31 @@ export default function HomePage() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <h1 className="text-xl font-semibold">Estaciones</h1>
         <div className="flex items-center gap-2">
-          <label className="text-sm text-gray-600">Filas por página</label>
+          <label className="text-sm text-gray-600 dark:text-gray-300">Filas por página</label>
           <select
-            className="border rounded px-2 py-1"
+            className="border rounded px-2 py-1 dark:bg-gray-800 dark:border-gray-700"
             value={pageSize}
             onChange={onChangePageSize}
           >
             {[5,10,20,50].map(n => <option key={n} value={n}>{n}</option>)}
           </select>
-          <button className="border rounded px-3 py-2" onClick={onAdd}>Agregar estación</button>
-          <button className="border rounded px-3 py-2" onClick={refresh}>Recargar</button>
+          <button className="border rounded px-3 py-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={onAdd}>Agregar estación</button>
+          <button className="border rounded px-3 py-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={refresh}>Recargar</button>
         </div>
       </div>
 
       {/* Tabla */}
-      <div className="overflow-x-auto border rounded">
+      <div className="overflow-x-auto border rounded dark:border-gray-700">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50 dark:bg-gray-800">
             <tr>
               {["ID","Nombre","Ubicación","Estado","Latitud","Longitud","Tipo","Última Lectura","Temp. Actual","Acciones"]
-                .map((c) => <th key={c} className="text-left p-2 border-b">{c}</th>)}
+                .map((c) => <th key={c} className="text-left p-2 border-b dark:border-gray-700">{c}</th>)}
             </tr>
           </thead>
           <tbody>
             {pageData.map((r) => (
-              <tr key={r.id} className="border-b">
+              <tr key={r.id} className="border-b dark:border-gray-700">
                 <td className="p-2">{r.id}</td>
                 <td className="p-2">{r.name}</td>
                 <td className="p-2">{r.location}</td>
@@ -106,15 +106,15 @@ export default function HomePage() {
                 <td className="p-2">{r.temp}</td>
                 <td className="p-2">
                   <div className="flex gap-2">
-                    <button className="border rounded px-2 py-1" onClick={() => onEdit(r)}>Editar</button>
-                    <button className="border rounded px-2 py-1" onClick={() => onDelete(r)}>Eliminar</button>
+                    <button className="border rounded px-2 py-1 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => onEdit(r)}>Editar</button>
+                    <button className="border rounded px-2 py-1 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => onDelete(r)}>Eliminar</button>
                   </div>
                 </td>
               </tr>
             ))}
             {pageData.length === 0 && (
               <tr>
-                <td colSpan={10} className="p-4 text-center text-gray-500">Sin datos</td>
+                <td colSpan={10} className="p-4 text-center text-gray-500 dark:text-gray-400">Sin datos</td>
               </tr>
             )}
           </tbody>
@@ -123,16 +123,16 @@ export default function HomePage() {
 
       {/* Controles de paginación */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 dark:text-gray-400">
           Mostrando {(pageClamped - 1) * pageSize + 1}–
           {Math.min(pageClamped * pageSize, total)} de {total}
         </p>
         <div className="flex items-center gap-2">
-          <button className="border rounded px-3 py-1" onClick={goFirst} disabled={pageClamped === 1}>« Primero</button>
-          <button className="border rounded px-3 py-1" onClick={goPrev}  disabled={pageClamped === 1}>‹ Anterior</button>
-          <span className="text-sm text-gray-700">Página {pageClamped} de {totalPages}</span>
-          <button className="border rounded px-3 py-1" onClick={goNext}  disabled={pageClamped === totalPages}>Siguiente ›</button>
-          <button className="border rounded px-3 py-1" onClick={goLast}  disabled={pageClamped === totalPages}>Última »</button>
+          <button className="border rounded px-3 py-1 dark:border-gray-700 dark:hover:bg-gray-700" onClick={goFirst} disabled={pageClamped === 1}>« Primero</button>
+          <button className="border rounded px-3 py-1 dark:border-gray-700 dark:hover:bg-gray-700" onClick={goPrev}  disabled={pageClamped === 1}>‹ Anterior</button>
+          <span className="text-sm text-gray-700 dark:text-gray-300">Página {pageClamped} de {totalPages}</span>
+          <button className="border rounded px-3 py-1 dark:border-gray-700 dark:hover:bg-gray-700" onClick={goNext}  disabled={pageClamped === totalPages}>Siguiente ›</button>
+          <button className="border rounded px-3 py-1 dark:border-gray-700 dark:hover:bg-gray-700" onClick={goLast}  disabled={pageClamped === totalPages}>Última »</button>
         </div>
       </div>
 

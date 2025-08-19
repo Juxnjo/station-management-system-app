@@ -102,8 +102,8 @@ export default function HomePage() {
                 <td className="p-2">{r.latitude}</td>
                 <td className="p-2">{r.longitude}</td>
                 <td className="p-2">{r.type}</td>
-                <td className="p-2">{formatDate(r.lastReading)}</td>
-                <td className="p-2">{r.currentTemperature}</td>
+                <td className="p-2">{formatDate(r.last_answer)}</td>
+                <td className="p-2">{r.temp}</td>
                 <td className="p-2">
                   <div className="flex gap-2">
                     <button className="border rounded px-2 py-1" onClick={() => onEdit(r)}>Editar</button>

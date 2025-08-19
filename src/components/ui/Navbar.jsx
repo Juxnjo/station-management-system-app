@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* Marca */}
         <div className="flex items-center gap-2">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded bg-gray-900 text-white font-bold">
-            A
+            ☁︎
           </span>
           <span className="font-semibold">App</span>
         </div>

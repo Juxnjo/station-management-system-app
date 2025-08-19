@@ -1,4 +1,3 @@
-// routes/public/AuthLayout.jsx
 export default function AuthLayout({ title, subtitle, children }) {
   return (
     <div className="min-h-dvh bg-gray-50 flex items-center">
@@ -6,7 +5,7 @@ export default function AuthLayout({ title, subtitle, children }) {
         <header className="flex items-center justify-between py-6">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-gray-900 text-white font-bold">
-              A
+              ☁︎
             </span>
             <span className="font-semibold">App</span>
           </div>

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../auth/AuthContext";
+import ThemeSwitch from "./ThemeSwitch";
 
 const linkBase =
   "px-3 py-2 rounded-md text-sm font-medium transition-colors";
 const linkClass = ({ isActive }) =>
   isActive
-    ? `${linkBase} bg-gray-900 text-white`
-    : `${linkBase} text-gray-700 hover:bg-gray-100`;
+    ? `${linkBase} bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900`
+    : `${linkBase} text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800`;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="border-b bg-white">
+    <header className="border-b bg-white dark:bg-gray-900 dark:border-gray-700">
       <nav
         className="mx-auto max-w-6xl px-4 py-3 flex items-center gap-3"
         aria-label="Main"
@@ -49,19 +50,20 @@ export default function Navbar() {
         {/* Usuario + acciones */}
         <div className="hidden md:flex items-center gap-3">
           {session?.email && (
-            <span className="text-sm text-gray-600">Hola, {session.email}</span>
+            <span className="text-sm text-gray-600 dark:text-gray-300">Hola, {session.email}</span>
           )}
           <button
             onClick={handleLogout}
-            className="px-3 py-2 rounded-md text-sm border hover:bg-gray-50"
+            className="px-3 py-2 rounded-md text-sm border hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-200"
           >
             Cerrar sesión
           </button>
+          <ThemeSwitch />
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden ml-auto border rounded px-3 py-2"
+          className="md:hidden ml-auto border rounded px-3 py-2 dark:border-gray-700"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -74,7 +76,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         id="mobile-menu"
-        className={`md:hidden border-t ${open ? "block" : "hidden"}`}
+        className={`md:hidden border-t ${open ? "block" : "hidden"} dark:border-gray-700`}
       >
         <div className="px-4 py-3 flex flex-col gap-2">
           <NavLink
@@ -92,20 +94,21 @@ export default function Navbar() {
             Perfil
           </NavLink>
 
-          <div className="h-px bg-gray-200 my-2" />
+          <div className="h-px bg-gray-200 my-2 dark:bg-gray-700" />
 
           {session?.email && (
-            <div className="text-sm text-gray-600">Hola, {session.email}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-300">Hola, {session.email}</div>
           )}
           <button
             onClick={() => {
               setOpen(false);
               handleLogout();
             }}
-            className="px-3 py-2 rounded-md text-sm border hover:bg-gray-50 text-left"
+            className="px-3 py-2 rounded-md text-sm border hover:bg-gray-50 text-left dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-200"
           >
             Cerrar sesión
           </button>
+          <ThemeSwitch />
         </div>
       </div>
     </header>

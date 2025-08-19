@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { changePasswordSchema } from "../../validation/userSchemas";
 import { useAuth } from "../../auth/AuthContext";
+import ThemeSwitch from "../../components/ui/ThemeSwitch";
 
 export default function ProfilePage() {
   const { session, changePassword } = useAuth();
@@ -20,45 +21,70 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-xl space-y-6">
-      <section className="bg-white border rounded-xl shadow-sm p-6">
+      <section className="bg-white border rounded-xl shadow-sm p-6 dark:bg-gray-900 dark:border-gray-700">
         <h1 className="text-xl font-semibold mb-2">Perfil</h1>
-        <p className="text-gray-600 text-sm">Usuario: <span className="font-medium">{session?.email}</span></p>
+        <p className="text-gray-600 text-sm dark:text-gray-300">
+          Usuario: <span className="font-medium">{session?.email}</span>
+        </p>
       </section>
 
-      <section className="bg-white border rounded-xl shadow-sm p-6">
+      <section className="bg-white border rounded-xl shadow-sm p-6 dark:bg-gray-900 dark:border-gray-700">
         <h2 className="text-lg font-semibold mb-4">Cambiar contraseña</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Contraseña actual</label>
-            <input type="password" className="w-full rounded-md border px-3 py-2" {...register("current")} />
+            <input
+              type="password"
+              className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
+              {...register("current")}
+            />
             {errors.current && <p className="text-red-600 text-sm">{errors.current.message}</p>}
           </div>
           <div className="grid md:grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium mb-1">Nueva contraseña</label>
-              <input type="password" className="w-full rounded-md border px-3 py-2" {...register("next")} />
+              <input
+                type="password"
+                className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
+                {...register("next")}
+              />
               {errors.next && <p className="text-red-600 text-sm">{errors.next.message}</p>}
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Confirmar nueva contraseña</label>
-              <input type="password" className="w-full rounded-md border px-3 py-2" {...register("confirm")} />
+              <input
+                type="password"
+                className="w-full rounded-md border px-3 py-2 dark:bg-gray-800 dark:border-gray-700"
+                {...register("confirm")}
+              />
               {errors.confirm && <p className="text-red-600 text-sm">{errors.confirm.message}</p>}
             </div>
           </div>
 
           {errors.root && (
-            <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded p-2">
+            <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded p-2 dark:bg-red-900/40 dark:border-red-800">
               {errors.root.message}
             </p>
           )}
 
           <div className="flex justify-end gap-2">
-            <button type="submit" disabled={isSubmitting}
-              className="rounded px-4 py-2 bg-gray-900 text-white hover:bg-black disabled:opacity-60">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="rounded px-4 py-2 bg-gray-900 text-white hover:bg-black disabled:opacity-60"
+            >
               Guardar cambios
             </button>
           </div>
         </form>
+      </section>
+
+      <section className="bg-white border rounded-xl shadow-sm p-6 dark:bg-gray-900 dark:border-gray-700">
+        <h2 className="text-lg font-semibold mb-4">Preferencias</h2>
+        <div className="flex items-center justify-between">
+          <span>Modo oscuro</span>
+          <ThemeSwitch />
+        </div>
       </section>
     </div>
   );

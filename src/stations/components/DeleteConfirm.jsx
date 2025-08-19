@@ -5,7 +5,7 @@ export default function DeleteConfirm({ name, onCancel, onConfirm, loading }) {
         ¿Eliminar la estación <span className="font-semibold">{name}</span>?
       </p>
       <div className="flex justify-end gap-2">
-        <button className="border rounded px-3 py-2" onClick={onCancel}>
+        <button className="border rounded px-3 py-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={onCancel}>
           Cancelar
         </button>
         <button

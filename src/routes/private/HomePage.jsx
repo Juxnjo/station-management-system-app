@@ -4,12 +4,13 @@ import Modal from "../../components/ui/Modal";
 import StationForm from "../../stations/components/StationForm";
 import DeleteConfirm from "../../stations/components/DeleteConfirm";
 import { formatDate } from "../../lib/formatDate";
+import * as XLSX from "xlsx";
 
 export default function HomePage() {
   const { stations, loading, error, create, update, remove, refresh } = useStations();
 
-  // --- Paginación (client-side) ---
-  const [page, setPage] = useState(1);        // 1-based
+  // Paginación (client-side) 
+  const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
   const total = stations.length;
@@ -29,7 +30,7 @@ export default function HomePage() {
   // Reset a página 1 si cambia el tamaño de página
   const onChangePageSize = (e) => { setPageSize(Number(e.target.value)); setPage(1); };
 
-  // --- Modales / acciones CRUD ---
+  // acciones CRUD
   const [openForm, setOpenForm] = useState(false);
   const [editing, setEditing] = useState(null);
   const [openDelete, setOpenDelete] = useState(false);
@@ -39,6 +40,24 @@ export default function HomePage() {
   const onAdd = () => { setEditing(null); setOpenForm(true); };
   const onEdit = (row) => { setEditing(row); setOpenForm(true); };
   const onDelete = (row) => { setToDelete(row); setOpenDelete(true); };
+
+  const exportToExcel = () => {
+    const data = stations.map((r) => ({
+      ID: r.id,
+      Nombre: r.name,
+      "Ubicación": r.location,
+      Estado: r.status,
+      Latitud: r.latitude,
+      Longitud: r.longitude,
+      Tipo: r.type,
+      "Última Lectura": formatDate(r.last_answer),
+      "Temp. Actual": r.temp,
+    }));
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Estaciones");
+    XLSX.writeFile(workbook, "estaciones.xlsx");
+  };
 
   const handleSubmit = async (data) => {
     if (editing) await update(editing.id, data);
@@ -79,6 +98,7 @@ export default function HomePage() {
             {[5,10,20,50].map(n => <option key={n} value={n}>{n}</option>)}
           </select>
           <button className="border rounded px-3 py-2" onClick={onAdd}>Agregar estación</button>
+          <button className="border rounded px-3 py-2" onClick={exportToExcel}>Exportar Excel</button>
           <button className="border rounded px-3 py-2" onClick={refresh}>Recargar</button>
         </div>
       </div>
